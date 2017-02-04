@@ -20,6 +20,11 @@
   <artifactId>kudu-flume-sink</artifactId>
   <name>Kudu Flume NG Sink</name>
 
+  <properties>
+    <avro.version>${cdh.avro.version}</avro.version>
+    <flume.version>${cdh.flume-ng.version}</flume.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
