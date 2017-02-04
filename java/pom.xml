@@ -75,9 +75,7 @@
         <yetus.version>0.4.0</yetus.version>
 
         <!-- Scala Library dependencies -->
-        <spark1.version>1.6.3</spark1.version>
         <spark2.version>2.1.1</spark2.version>
-        <scala-2.10.version>2.10.6</scala-2.10.version>
         <scala-2.11.version>2.11.8</scala-2.11.version>
         <scalatest.version>3.0.3</scalatest.version>
 
@@ -353,10 +351,7 @@
             </modules>
         </profile>
 
-        <!-- Manage Scala and Spark versions.
-
-             Kudu supports integration with Spark2/Scala2.11 *and* Spark1/Scala2.10
-             with the same module, so we use profiles to control which mode to compile in. -->
+        <!-- Manage Scala and Spark versions. -->
         <profile>
             <id>spark2_2.11</id>
             <activation>
@@ -364,29 +359,12 @@
             </activation>
             <properties>
                 <spark.version>${spark2.version}</spark.version>
-                <spark.version.label>spark2</spark.version.label>
                 <scala.version>${scala-2.11.version}</scala.version>
                 <scala.binary.version>2.11</scala.binary.version>
-                <kudu-spark.compat.src>src/main/spark2</kudu-spark.compat.src>
             </properties>
             <modules>
                 <module>kudu-spark</module>
-
-                <!-- kudu-spark-tools is only compatible with Spark2 -->
                 <module>kudu-spark-tools</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>spark_2.10</id>
-            <properties>
-                <spark.version>${spark1.version}</spark.version>
-                <spark.version.label>spark</spark.version.label>
-                <scala.version>${scala-2.10.version}</scala.version>
-                <scala.binary.version>2.10</scala.binary.version>
-                <kudu-spark.compat.src>src/main/spark1</kudu-spark.compat.src>
-            </properties>
-            <modules>
-                <module>kudu-spark</module>
             </modules>
         </profile>
     </profiles>
