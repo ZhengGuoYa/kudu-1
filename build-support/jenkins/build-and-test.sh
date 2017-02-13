@@ -355,7 +355,7 @@ if [ "$BUILD_JAVA" == "1" ]; then
   set -x
 
   # Run the full Maven build (with Spark 2.x).
-  if ! mvn $MVN_FLAGS \
+  if ! mvn $MVN_FLAGS -PbuildCSD \
       -Dsurefire.rerunFailingTestsCount=3 \
       -Dfailsafe.rerunFailingTestsCount=3 \
       clean verify ; then
