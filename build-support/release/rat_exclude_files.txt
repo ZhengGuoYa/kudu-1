@@ -13,6 +13,7 @@ docs/support/doxygen/client_api.footer.in
 java/gradlew
 java/gradle/gradle-wrapper.jar
 java/gradle/gradle-wrapper.properties
+java/kudu-csd/old-version-metrics/*.json
 java/kudu-flume-sink/src/test/avro/testAvroKuduOperationsProducer.avsc
 java/kudu-client/src/main/java/com/google/protobuf/ZeroCopyLiteralByteString.java
 java/kudu-client/src/main/java/org/apache/kudu/client/AsyncKuduClient.java
