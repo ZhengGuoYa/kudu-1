@@ -293,6 +293,7 @@ set +e
 
 # Run tests
 export GTEST_OUTPUT="xml:$TEST_LOGDIR/" # Enable JUnit-compatible XML output.
+mkdir -p $TEST_LOGDIR # In case no tests are run (the directory won't be created)
 if [ "$RUN_FLAKY_ONLY" == "1" ] ; then
   if [ -z "$TEST_RESULT_SERVER" ]; then
     echo Must set TEST_RESULT_SERVER to use RUN_FLAKY_ONLY
