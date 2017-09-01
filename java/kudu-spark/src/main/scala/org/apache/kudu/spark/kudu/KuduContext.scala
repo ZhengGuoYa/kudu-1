@@ -97,7 +97,7 @@ class KuduContext(val kuduMaster: String,
 
   @transient lazy val syncClient: KuduClient = asyncClient.syncClient()
 
-  @transient lazy val asyncClient: AsyncKuduClient = {
+  @transient lazy val asyncClient = {
     val c = KuduConnection.getAsyncClient(kuduMaster)
     if (authnCredentials != null) {
       c.importAuthenticationCredentials(authnCredentials)
@@ -370,7 +370,7 @@ private object KuduConnection {
         val asyncClient = new AsyncKuduClient.AsyncKuduClientBuilder(kuduMaster).build()
         ShutdownHookManager.get().addShutdownHook(
           new Runnable {
-            override def run(): Unit = asyncClient.close()
+            override def run() = asyncClient.close()
           }, ShutdownHookPriority)
         asyncCache.put(kuduMaster, asyncClient)
       }
