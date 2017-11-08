@@ -43,7 +43,7 @@ CDH_MAJOR = 5
 CDH_MINOR = 13
 CDH_MICRO = 1
 VERSION = '%d.%d.%d-cdh%d.%d.%d' % (MAJOR, MINOR, MICRO, CDH_MAJOR, CDH_MINOR, CDH_MICRO)
-ISRELEASED = False
+ISRELEASED = True
 
 setup_dir = os.path.abspath(os.path.dirname(__file__))
 
